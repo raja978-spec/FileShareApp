@@ -1,0 +1,33 @@
+{% extends 'html/home.html' %}
+{% block banner %}
+{% endblock %}
+{% block link %}
+{% endblock %}
+{% block blog %}
+<div class="blog_section layout_padding">
+    <div class="container">
+       <h1 class="news_taital" id="param">Uploaded files</h1>
+       <p class="news_text">File can't be reterived once delete make sure before delete it</p> 
+       <center>           
+       <div class="blog_section_2">
+         {% if data %}
+                {% for i in data %}
+                    <h5 style="border: 5px yellow solid;">
+                      <a href="{{i.file.url}}">{{i.file}}</a>  
+                          <button><a href="{% url 'delete' i.id %}">Delete</a></button><br><hr>
+                    </h5><br>
+                {% endfor %}
+         {% else %}
+         <h1>No item to display</h1>
+         {% endif %}
+          
+          
+       </div>
+       <center>
+          <div class="read_bt"><a href="{% url 'fileupload' j %}">Click here</a>to uploaded files</div>
+       </center>
+
+    
+    </div>
+ </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'html/home.html' %}
+{% block link %}
+{% endblock %}
+
+{% block blog %}
+      <div class="blog_section layout_padding">
+         <div class="container">
+            <h1 class="news_taital" id="param">Upload files here</h1>
+            <p class="news_text">Uploads various file in various size upto 10MB</p>            
+            <div class="blog_section_2">
+                     <center>
+                        <form method="POST" enctype="multipart/form-data">
+                           <input type="text" hidden="true" value="{{n}}" name="name">
+                           {{form}}
+                           {% csrf_token %}
+                           <button class="btn btn-primary text-white btn-user" type="submit">Submit</button>
+                        </form>
+                        <br>
+                        <h4 style="color:green">{{m}}</h4>
+
+                     </center>
+                        
+                     
+               
+            </div>
+               <div class="read_bt"><a href="{% url 'seefile' n %}">Click here</a>to see uploaded files</div>
+         
+         </div>
+      </div>
+{% endblock %}
+{% block banner %}
+
+{% endblock %}
